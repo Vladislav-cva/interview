@@ -1,0 +1,18 @@
+// let a = 5;
+// function doSmth() {
+//   let innerFunc = function () {
+//     console.log(a);
+//   };
+//   innerFunc();
+// }
+//
+// function getCounter() {
+//   let count = 0;
+//   const add = () => (count += 1);
+//   return { add };
+// }
+
+// const counter = getCounter();
+// console.log(counter.add());
+// console.log(counter.add());
+// console.log(counter.add());

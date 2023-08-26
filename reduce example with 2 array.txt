@@ -1,0 +1,78 @@
+ const x = [
+    'Overdue and future payments',
+    'UNPAID_FUTURE_PAYMENT',
+    'CONNECTED_BANK',
+    'AUTO_PAYMENT',
+    'PAYMENT_HOLIDAYS',
+    'PAYMENT',
+    'ACCOUNT_CHANGES',
+    'SECURITY',
+    'LOGGING_FROM_ANOTHER_DEVICE',
+    'Adding new loan',
+    'CLOSED_LOAN',
+  ]
+  const { t } = useTranslation()
+
+  const notificationsVariants = [
+    {
+      title: t('notifications.settings.titles.overdue'),
+      variant: t('notifications.settings.variants.all'),
+      action: {
+        onClick: () => console.log('hello'),
+      },
+    },
+    {
+      title: t('notifications.settings.titles.connectedBanks'),
+      variant: t('notifications.settings.variants.pushAndEmail'),
+      action: () => console.log('hello'),
+    },
+    {
+      title: t('notifications.settings.titles.autopayments'),
+      variant: t('notifications.settings.variants.push'),
+      action: () => console.log('hello'),
+    },
+    {
+      title: t('notifications.settings.titles.paymentHolidays'),
+      variant: t('notifications.settings.variants.email'),
+      action: () => console.log('hello'),
+    },
+    {
+      title: t('notifications.settings.titles.makePayment'),
+      variant: t('notifications.settings.variants.off'),
+      action: () => console.log('hello'),
+    },
+    {
+      title: t('notifications.settings.titles.securityUpdates'),
+      variant: t('notifications.settings.variants.off'),
+      action: () => console.log('hello'),
+    },
+    {
+      title: t('notifications.settings.titles.addingLoan'),
+      variant: t('notifications.settings.variants.off'),
+      action: () => console.log('hello'),
+    },
+    {
+      title: t('notifications.settings.titles.closingLoan'),
+      variant: t('notifications.settings.variants.emailSms'),
+      action: () => console.log('hello'),
+    },
+  ]
+
+  const newArr = notificationsVariants.reduce((acc, item, i) => {
+    x.forEach((elem) => {
+      if (item.title === elem) {
+        acc.push({
+          ...item,
+          action: {
+            ...item.action,
+            type: elem,
+          },
+        })
+      }
+    })
+
+    return acc
+
+  }, [] as any)
+
+  console.log(newArr)

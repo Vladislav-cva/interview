@@ -1,0 +1,12 @@
+  const handleEdit = useEvent(
+    (dialogType: DialogTypes) => (e: MouseEvent<HTMLElement>) => {
+      e.preventDefault();
+      openDialog(dialogType)();
+    }
+  );
+
+
+Вызов:
+
+
+ onClick={handleEdit(DialogTypes.ChangeTranslationKey)}

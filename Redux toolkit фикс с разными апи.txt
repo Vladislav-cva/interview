@@ -1,0 +1,21 @@
+import { userSvcsApi } from 'api';
+import { uiApi } from '../ui-api-svcs.api';
+
+const salesOfficeEndpoints = uiApi.injectEndpoints({
+  endpoints: (builder) => ({
+    deleteSalesOffice: builder.mutation<void, string>({
+      query: (lookupId) => ({
+        method: 'DELETE',
+        url: `/SalesOffices/${lookupId}`,
+      }),
+      // Todo: remove when all SalesOffice APIs will be moved to /uiapi
+      async onCacheEntryAdded(_, { cacheDataLoaded, dispatch }) {
+        await cacheDataLoaded;
+        dispatch(userSvcsApi.util.invalidateTags(['SalesOffice']));
+      },
+      invalidatesTags: ['SalesOffice'],
+    }),
+  }),
+});
+
+export const { useDeleteSalesOfficeMutation } = salesOfficeEndpoints;

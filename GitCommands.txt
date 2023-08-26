@@ -1,0 +1,18 @@
+git rebase BRANCH тоже мердж ветки
+git rebase --continue
+ git push --force  
+
+git merdge BRANCH
+
+rebase squash
+
+git branch -m  oldBranch newBrach  - переимнует
+
+
+npm version <patch/minor/major> - менять версии
+
+
+ipconfig - смотрим порты
+
+
+
